@@ -30,9 +30,18 @@ Casper's “ghost kitchen” location then stream them into a Delta table for an
 4. Query the table:
 
    ```sql
-   SELECT event_type, COUNT(*) 
-   FROM   main.gk_sim.events 
-   GROUP  BY event_type;
+   -- orders per day
+   SELECT
+      count(*),
+      date_format(ts, 'MMM dd') as day
+   FROM
+      events
+   WHERE
+      event_type = 'order_created'
+   GROUP BY
+      date_format(ts, 'MMM dd')
+   ORDER BY
+      date_format(ts, 'MMM dd')
    ```
 
 ## What the notebook 
