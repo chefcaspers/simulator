@@ -1,7 +1,17 @@
 # Ghost-Kitchen Event **Simulator**
 
-Generate lifelike order, kitchen, and driver-tracking events for a fictional
-Casper's “ghost kitchen” location then stream them into a Delta table for analytics demos, mapping, or real-time dashboards.
+Generate lifelike order, kitchen, and driver-tracking events for a fictional Casper's “ghost kitchen” location then stream them into a Delta table for analytics demos, mapping, or real-time dashboards.
+
+Following events are produced:
+
+1. `created `
+2. `gk_started`
+3. `gk_finished`
+4. `gk_ready`
+5. `driver_picked_up` 
+6. `driver_ping`(*)
+7. `delivered`
+8. `customer review` (LLM generated based on timing of events above)
 
 ---
 
@@ -44,7 +54,7 @@ Casper's “ghost kitchen” location then stream them into a Delta table for an
       date_format(ts, 'MMM dd')
    ```
 
-## What the notebook 
+## What the notebook does
 
 1. Build/Cache a road graph around the kitchen via OSMnx.
 2. Sample reachable customer nodes inside that radius.
@@ -88,5 +98,5 @@ Casper's “ghost kitchen” location then stream them into a Delta table for an
 | **Volume profile**             | `orders_per_day()`, `minute_weight_vector()`, or the weekly multipliers |
 | **Driver Ping frequency**      | `PING_INTERVAL_SEC`                                                     |
 | **Output table location**      | widgets `catalog`, `schema`, `table`                                    |
-
+| **Consumer Reviews**           | prompts and timing information in main logic cell                       |
 
