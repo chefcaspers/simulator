@@ -1,0 +1,64 @@
+{
+    "catalog": "gk_nk",
+    "schema": "default",
+    "table": "events",
+    "start_ts": "2025-05-15 00:00:00",
+    "end_ts": "2025-06-15 00:00:00",
+    "speed_up": 60,
+    "orders_day_1": 100,
+    "orders_last": 150,
+    "noise_pct": 10,
+    "svc": {
+        "cs": [
+            2,
+            1
+        ],
+        "sf": [
+            10,
+            3
+        ],
+        "fr": [
+            2,
+            1
+        ],
+        "rp": [
+            6,
+            2
+        ]
+    },
+    "driver_arrival": {
+        "alpha": 2,
+        "beta": 2,
+        "after_ready_pct": 0.8
+    },
+    "brand_momentum": {
+        "improving": 0.7,
+        "flat": 0.2,
+        "declining": 0.1
+    },
+    "momentum_rates": {
+        "growth": 0.08,
+        "decline": 0.05
+    },
+    "dq": {
+        "driver_ping": {
+            "loc_lat": 0.01,
+            "loc_lon": 0.01,
+            "progress_pct": 0.02
+        },
+        "driver_picked_up": {
+            "route_points": 0.03
+        },
+        "order_created": {
+            "items": 0.02,
+            "customer_addr": 0.01
+        }
+    },
+    "gk_location": "3000 Sacramento St, San Francisco CA",
+    "radius_mi": 2,
+    "driver_mph": 25,
+    "batch_rows": 10,
+    "batch_seconds": 1.0,
+    "ping_sec": 60,
+    "random_seed": 42
+}
